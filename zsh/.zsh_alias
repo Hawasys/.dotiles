@@ -1,0 +1,20 @@
+alias grubupdate="sudo grub-mkconfig -o /boot/grub/grub.cfg"
+
+alias theharvester="python3 /opt/theHarvester/theHarvester.py"
+
+alias john="/opt/JohnTheRipper/run/john"
+
+alias duckencoder="java -jar /opt/USB-Rubber-Ducky/duckencoder.jar"
+
+alias duck2arduino="python3 /opt/duck2spark/duck2spark.py"
+
+alias backupfiles='/usr/bin/git --git-dir=$HOME/.backupfiles/ --work-tree=$HOME'
+
+alias dotfiles='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
+
+alias sudo='sudo '
+
+alias downyt_a='youtube-dl -f best --write-description --write-info-json --add-metadata' 
+alias downyt='youtube-dl -f best'
+
+alias publicip="curl checkip.amazonaws.com"
