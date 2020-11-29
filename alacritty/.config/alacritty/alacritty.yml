@@ -1,1 +1,6 @@
 background_opacity: 0.6
+font:
+    normal:
+        family: noto sans mono nerd font
+        style: regular
+    size: 10
