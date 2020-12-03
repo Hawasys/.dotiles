@@ -24,16 +24,19 @@ bindsym $super+Shift+Return exec alacritty
 bindsym $super+m bar mode toggle
 
 #change virtualconsoles
-bindsym Mod1+Control+F1 exec chvt 1 
-bindsym Mod1+Control+F2 exec chvt 2 
-bindsym Mod1+Control+F3 exec chvt 3 
-bindsym Mod1+Control+F4 exec chvt 4 
-bindsym Mod1+Control+F5 exec chvt 5 
-bindsym Mod1+Control+F6 exec chvt 6 
+bindsym Mod1+Control+F1 exec --no-startup-id  chvt 1 
+bindsym Mod1+Control+F2 exec --no-startup-id  chvt 2 
+bindsym Mod1+Control+F3 exec --no-startup-id  chvt 3 
+bindsym Mod1+Control+F4 exec --no-startup-id  chvt 4 
+bindsym Mod1+Control+F5 exec --no-startup-id  chvt 5 
+bindsym Mod1+Control+F6 exec --no-startup-id  chvt 6 
 
 # start dmenu (a program launcher)
-bindsym $super+Shift+d exec i3-dmenu-desktop --dmenu="dmenu -i -fn 'Noto Sans:size=18'"
-bindsym $super+d exec rofi -lines 12 -padding 18 -width 60 -location 0 -show drun -sidebar-mode -columns 3 -font 'Noto Sans 18'
+bindsym $super+Shift+d exec --no-startup-id  i3-dmenu-desktop --dmenu="dmenu -i -fn 'Noto Sans:size=18'"
+bindsym $super+d exec --no-startup-id  rofi -lines 12 -padding 18 -width 60 -location 0 -show drun -sidebar-mode -columns 3 -font 'Noto Sans 18'
+
+#arch-wiki local menu
+bindsym $super+w exec --no-startup-id arch-wiki
 
 # exit menu
 bindsym Ctrl+Mod1+Delete exec wlogout
@@ -226,7 +229,7 @@ client.background           #2f343f
 #############################
 
 # Set inner/outer gaps
-gaps inner 14
+gaps inner 8
 gaps outer -2
 
 # Additionally, you can issue commands with the following syntax. This is useful to bind keys to changing the gap size.

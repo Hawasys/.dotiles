@@ -14,7 +14,7 @@ alias dotfiles='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
 
 alias sudo='sudo '
 
-alias downyt_a='youtube-dl -f best --write-description --write-info-json --add-metadata' 
+alias downyt_a='youtube-dl -f best --add-metadata' 
 alias downyt='youtube-dl -f best'
 
 alias publicip="curl checkip.amazonaws.com"
