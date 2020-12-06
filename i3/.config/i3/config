@@ -1,12 +1,34 @@
 exec --no-startup-id exec mpd
 exec --no-startup-id exec picom
-exec --no-startup-id exec feh --bg-scale .wallpaper.jpg  
-#exec --no-startup-id exec sh ~/startDay.sh
+#exec --no-startup-id exec feh --bg-scale .wallpaper.jpg  
+exec --no-startup-id exec $HOME/i3-alternating-layout/alternating_layouts.py
+exec --no-startup-id exec sxhkd
+exec --no-startup-id xss-lock -- i3lock -n -i $HOME/.wallpaper.png 
 exec --no-startup-id exec $HOME/.config/polybar/launch.sh
 exec --no-startup-id exec setxkbmap br abnt2
 #exec --no-startup-id exec sh ~/xob.sh 
 
 set $super Mod4
+
+exec wal -R
+
+# Set colors from Xresources
+# Change 'color7' and 'color2' to whatever colors you want i3 to use 
+# from the generated scheme.
+# NOTE: The '#f0f0f0' in the lines below is the color i3 will use if
+# it fails to get colors from Xresources.
+set_from_resource $fg i3wm.color7 #f0f0f0
+set_from_resource $bg i3wm.color2 #f0f0f0
+
+# class                 border  backgr. text indicator child_border
+client.focused          $bg     $bg     $fg  $bg       $bg
+client.focused_inactive $bg     $bg     $fg  $bg       $bg
+client.unfocused        $bg     $bg     $fg  $bg       $bg
+client.urgent           $bg     $bg     $fg  $bg       $bg
+client.placeholder      $bg     $bg     $fg  $bg       $bg
+
+client.background       $bg
+
 
 font pango:Noto Sans Mono 0
 for_window [class=".*"] split toggle
@@ -33,10 +55,6 @@ bindsym Mod1+Control+F6 exec --no-startup-id  chvt 6
 
 # start dmenu (a program launcher)
 bindsym $super+Shift+d exec --no-startup-id  i3-dmenu-desktop --dmenu="dmenu -i -fn 'Noto Sans:size=18'"
-bindsym $super+d exec --no-startup-id  rofi -lines 12 -padding 18 -width 60 -location 0 -show drun -sidebar-mode -columns 3 -font 'Noto Sans 18'
-
-#arch-wiki local menu
-bindsym $super+w exec --no-startup-id arch-wiki
 
 # exit menu
 bindsym Ctrl+Mod1+Delete exec wlogout
@@ -69,7 +87,6 @@ bindsym $super+Shift+Print --release exec --no-startup-id ksnip -r
 
 
 # kill focused window
-bindsym $super+c kill
 bindsym $super+q kill
 
 # change focus
@@ -210,19 +227,6 @@ assign [class=URxvt] 1
 #assign [class=Geany|Evince|Gucharmap|Soffice|libreoffice*] 4
 #assign [class=Audacity|Vlc|mpv|Ghb|Xfburn|Gimp*|Inkscape] 5
 #assign [class=Lxappearance|System-config-printer.py|Lxtask|GParted|Pavucontrol|Exo-helper*|Lxrandr|Arandr] 6
-for_window [class=Viewnior|feh|Audacious|File-roller|Lxappearance|Lxtask|Pavucontrol] floating enable
-for_window [class=URxvt|Firefox|Geany|Evince|Soffice|libreoffice*|mpv|Ghb|Xfburn|Gimp*|Inkscape|Vlc|Lxappearance|Audacity] focus
-for_window [class=Xfburn|GParted|System-config-printer.py|Lxtask|Pavucontrol|Exo-helper*|Lxrandr|Arandr] focus
-
-# colour of border, background, text, indicator, and child_border
-client.focused              #bf616a #2f343f #d8dee8 #bf616a #d8dee8
-client.focused_inactive     #2f343f #2f343f #d8dee8 #2f343f #2f343f
-client.unfocused            #2f343f #2f343f #d8dee8 #2f343f #2f343f
-client.urgent               #2f343f #2f343f #d8dee8 #2f343f #2f343f
-client.placeholder          #2f343f #2f343f #d8dee8 #2f343f #2f343f
-client.background           #2f343f
-
-
 
 #############################
 ### settings for i3-gaps: ###
@@ -295,6 +299,16 @@ mode "$mode_system" {
     bindsym Shift+s exec --no-startup-id i3exit shutdown, mode "default"
 
     # exit system mode: "Enter" or "Escape"
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+}
+
+bindsym $super+Shift+h mode "$hybrid_switch"
+set $hybrid_switch (0)intel_igu (1)amd_gpu
+mode "$hybrid_switch" {
+    bindsym 1 exec --no-startup-id export DRI_PRIME=1
+    bindsym 0 exec --no-startup-id export DRI_PRIME=0
+
     bindsym Return mode "default"
     bindsym Escape mode "default"
 }
