@@ -14,6 +14,10 @@ alias dotfiles='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
 
 alias sudo='sudo '
 
+alias ls='exa --color=always'
+alias lt='exa -aT --color=always'
+alias l='exa -al --color=always'
+
 alias downyt_a='youtube-dl -f best --add-metadata' 
 alias downyt='youtube-dl -f best'
 
