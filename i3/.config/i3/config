@@ -1,11 +1,11 @@
-exec --no-startup-id exec mpd
-exec --no-startup-id exec picom
+exec --no-startup-id mpd
+exec --no-startup-id picom
 #exec --no-startup-id exec feh --bg-scale .wallpaper.jpg  
-exec --no-startup-id exec $HOME/i3-alternating-layout/alternating_layouts.py
-exec --no-startup-id exec sxhkd
+exec --no-startup-id $HOME/i3-alternating-layout/alternating_layouts.py
+exec --no-startup-id sxhkd
 exec --no-startup-id xss-lock -- i3lock -n -i $HOME/.wallpaper.png 
-exec --no-startup-id exec $HOME/.config/polybar/launch.sh
-exec --no-startup-id exec setxkbmap br abnt2
+exec --no-startup-id $HOME/.config/polybar/launch.sh
+exec --no-startup-id setxkbmap br abnt2
 #exec --no-startup-id exec sh ~/xob.sh 
 
 set $super Mod4
