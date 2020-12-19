@@ -1,16 +1,13 @@
-exec --no-startup-id mpd
-exec --no-startup-id picom
-#exec --no-startup-id exec feh --bg-scale .wallpaper.jpg  
-exec --no-startup-id $HOME/i3-alternating-layout/alternating_layouts.py
-exec --no-startup-id sxhkd
-exec --no-startup-id xss-lock -- i3lock -n -i $HOME/.wallpaper.png 
 exec --no-startup-id $HOME/.config/polybar/launch.sh
+exec --no-startup-id feh --bg-scale .wallpaper.jpg  
+exec --no-startup-id wal -Rn
+exec --no-startup-id picom 
+exec --no-startup-id mpd
+exec --no-startup-id exec python3 ~/i3-alternating-layout/alternating_layouts.py &
+exec --no-startup-id exec python3 $HOME/.config/i3/i3-swallow.py
 exec --no-startup-id setxkbmap br abnt2
-#exec --no-startup-id exec sh ~/xob.sh 
 
 set $super Mod4
-
-exec wal -R
 
 # Set colors from Xresources
 # Change 'color7' and 'color2' to whatever colors you want i3 to use 
@@ -55,6 +52,16 @@ bindsym Mod1+Control+F6 exec --no-startup-id  chvt 6
 
 # start dmenu (a program launcher)
 bindsym $super+Shift+d exec --no-startup-id  i3-dmenu-desktop --dmenu="dmenu -i -fn 'Noto Sans:size=18'"
+
+#app menu
+bindsym $super+d exec rofi -lines 12 -padding 18 -width 60 -location 0 -show drun -sidebar-mode -columns 3 -font 'Noto Sans 18'
+
+#arch-wiki local menu
+bindsym $super+w exec arch-wiki
+
+#i3_quicterm
+bindsym F12 exec i3-quickterm zsh
+bindsym $super+F12 exec i3-quickterm
 
 # exit menu
 bindsym Ctrl+Mod1+Delete exec wlogout
@@ -290,7 +297,7 @@ mode "$mode_gaps_outer" {
 bindsym $super+0 mode "$mode_system"
 set $mode_system (l)ock, (e)xit, switch_(u)ser, (s)uspend, (h)ibernate, (r)eboot, (Shift+s)hutdown
 mode "$mode_system" {
-    bindsym l exec --no-startup-id i3exit lock, mode "default"
+    bindsym l exec --no-startup-id mantablockscreen, mode "default"
     bindsym s exec --no-startup-id i3exit exit, mode "default"
     bindsym u exec --no-startup-id i3exit switch_user, mode "default"
     bindsym e exec --no-startup-id i3exit logout, mode "default"

@@ -1,3 +1,4 @@
+#general purpuse
 alias grubupdate="sudo grub-mkconfig -o /boot/grub/grub.cfg"
 
 alias theharvester="python3 /opt/theHarvester/theHarvester.py"
@@ -14,11 +15,15 @@ alias dotfiles='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
 
 alias sudo='sudo '
 
+#ls for exa
 alias ls='exa --color=always'
 alias lt='exa -aT --color=always'
 alias l='exa -al --color=always'
 
+#youtube-dl
 alias downyt_a='youtube-dl -f best --add-metadata' 
 alias downyt='youtube-dl -f best'
 
 alias publicip="curl checkip.amazonaws.com"
+
+

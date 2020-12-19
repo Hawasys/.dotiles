@@ -402,9 +402,9 @@
 #def_key "f"
 #	find_item_forward
 
+def_key "-"
+    volume_down
 def_key "+"
-    show_clock
-def_key "="
     volume_up
 
 def_key "j"
