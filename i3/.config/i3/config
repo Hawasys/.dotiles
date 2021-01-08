@@ -3,10 +3,11 @@ exec --no-startup-id feh --bg-scale .wallpaper.jpg
 exec --no-startup-id wal -Rn
 exec --no-startup-id picom 
 exec --no-startup-id mpd
-exec --no-startup-id exec python3 ~/i3-alternating-layout/alternating_layouts.py &
-exec --no-startup-id exec python3 $HOME/.config/i3/i3-swallow.py
+exec --no-startup-id python3 ~/i3-alternating-layout/alternating_layouts.py &
+exec --no-startup-id python3 $HOME/.config/i3/i3-swallow.py
 exec --no-startup-id setxkbmap br abnt2
-
+exec --no-startup-id kde-polkit
+exec --no-startup-id export QT_STYLE_OVERRIDE=kvantum
 set $super Mod4
 
 # Set colors from Xresources
@@ -311,10 +312,9 @@ mode "$mode_system" {
 }
 
 bindsym $super+Shift+h mode "$hybrid_switch"
-set $hybrid_switch (0)intel_igu (1)amd_gpu
+set $hybrid_switch (h)change mode
 mode "$hybrid_switch" {
-    bindsym 1 exec --no-startup-id export DRI_PRIME=1
-    bindsym 0 exec --no-startup-id export DRI_PRIME=0
+    bindsym h exec source /home/hawasys/scripts/dri_switch.sh, mode "default"
 
     bindsym Return mode "default"
     bindsym Escape mode "default"
