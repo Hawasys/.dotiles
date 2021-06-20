@@ -2,6 +2,7 @@ alias grubupdate="sudo grub-mkconfig -o /boot/grub/grub.cfg"
 
 alias theharvester="python3 /opt/theHarvester/theHarvester.py"
 
+alias sherlock="/opt/sherlock/sherlock/sherlock.py"
 alias john="/opt/JohnTheRipper/run/john"
 
 alias sudo='doas '
